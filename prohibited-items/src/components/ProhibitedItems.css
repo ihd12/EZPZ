@@ -13,7 +13,7 @@
 
 .cards-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 한 줄에 3개씩 배치 */
+  grid-template-columns: repeat(2, 1fr); /* 한 줄에 3개씩 배치 */
   gap: 60px; /* 카드 간격을 15px로 줄임 */
   justify-items: center;
   padding: 20px;
@@ -21,7 +21,7 @@
 
 .card {
   width: 90%;
-  max-width: 300px; /* 카드 최대 너비 유지 */
+  max-width: 500px; /* 카드 최대 너비 유지 */
   background: white;
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -36,7 +36,7 @@
 }
 
 .card-header {
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  background: linear-gradient(135deg, #616161, #3b3b3b);
   padding: 20px;
   color: white;
   border-top-left-radius: 15px;
