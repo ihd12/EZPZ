@@ -2,9 +2,10 @@ ezpacking/src/main/resources/Oracle_JDK-21/
 ezpacking/build/
 ezpacking/target/
 ezpacking/bin/main/Oracle_JDK-21/
-
+ezpacking/.gradle/
 *.jar
 *.class
 
 .idea/
 .vscode/
+ezpacking/src/main/resources/application.properties
