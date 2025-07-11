@@ -91,7 +91,7 @@ function ProhibitedItems() {
   // API 호출: 금지 물품 데이터, 공항 목록
   useEffect(() => {
     axios
-      .get("http://localhost:8088/api/prohibit-items")
+      .get(process.env.REACT_APP_API_URL+"/api/prohibit-items")
       .then((response) => {
         setItemsData(response.data);
       })

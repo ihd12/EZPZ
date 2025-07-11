@@ -15,7 +15,7 @@ const ObjectDetection = () =>{
       reader.readAsDataURL(file);
       const formData = new FormData();
       formData.append("file", file);
-      const response = await axios.post("http://localhost:8088/api/odimg", 
+      const response = await axios.post(process.env.REACT_APP_API_URL+"/api/odimg", 
         formData,
         {header:{"Content-Type":"multipart/form-data"}}
       );

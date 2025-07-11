@@ -91,7 +91,7 @@ const AirportParkingPage = () => {
 
   const fetchAverageRatings = async (airportId) => {
     try {
-      const response = await axios.get(`http://localhost:8080/api/airports/${airportId}/ratings/average`);
+      const response = await axios.get(process.env.REACT_APP_API_URL+`/api/airports/${airportId}/ratings/average`);
       setAverageRatings(response.data);
     } catch (error) {
       console.error('평균 평점 조회 실패:', error);
@@ -100,7 +100,7 @@ const AirportParkingPage = () => {
 
   const handleRatingSubmit = async (airportId) => {
     try {
-      await axios.post(`http://localhost:8080/api/airports/${airportId}/ratings`, ratings);
+      await axios.post(process.env.REACT_APP_API_URL+`/api/airports/${airportId}/ratings`, ratings);
       alert('평가가 성공적으로 제출되었습니다!');
       fetchAverageRatings(airportId);
       setRatings({

@@ -14,7 +14,7 @@ const RecentPosts = () => {
 
   const fetchRecentPosts = async () => {
     try {
-      const response = await fetch('http://localhost:8088/api/posts');
+      const response = await fetch(process.env.REACT_APP_API_URL+'/api/posts');
       if (!response.ok) {
         throw new Error('Failed to fetch posts');
       }
@@ -31,7 +31,7 @@ const RecentPosts = () => {
   const handlePostClick = async (postId) => {
     try {
       // 게시글 상세 정보를 먼저 가져옵니다
-      const response = await fetch(`http://localhost:8088/api/posts/${postId}`);
+      const response = await fetch(process.env.REACT_APP_API_URL+`/api/posts/${postId}`);
       if (!response.ok) {
         throw new Error('Failed to fetch post detail');
       }

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = 'http://localhost:8088/api';  // 백엔드 서버 주소
+const API_BASE_URL = process.env.REACT_APP_API_URL+'/api';  // 백엔드 서버 주소
 
 export const createPost = async (title, content) => {
   const response = await fetch(`${API_BASE_URL}/posts`, {

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:8088/api";
+const API_BASE_URL = process.env.REACT_APP_API_URL+"/api";
 
 //아이템 목록 가져오기
 export const getItems = async (categoryId) => {

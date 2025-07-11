@@ -41,7 +41,7 @@ const App = () => {
 
   const fetchPostDetail = async (postId) => {
     try {
-      const response = await fetch(`http://localhost:8088/api/posts/${postId}`);
+      const response = await fetch(process.env.REACT_APP_API_URL+`/api/posts/${postId}`);
       if (!response.ok) {
         throw new Error('Failed to fetch post detail');
       }
@@ -100,7 +100,7 @@ const App = () => {
   // 게시글 목록 불러오기
   const fetchPosts = async () => {
     try {
-      const response = await fetch('http://localhost:8088/api/posts');  // API 엔드포인트 주소
+      const response = await fetch(process.env.REACT_APP_API_URL+'/api/posts');  // API 엔드포인트 주소
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -121,7 +121,7 @@ const App = () => {
     const fetchUsername = async () => {
       try {
         const token = localStorage.getItem('accessToken');
-        const response = await fetch('http://localhost:8088/api/member/me', {
+        const response = await fetch(process.env.REACT_APP_API_URL+'/api/member/me', {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -181,8 +181,8 @@ const App = () => {
   
     try {
       const url = editId 
-        ? `http://localhost:8088/api/posts/${editId}`
-        : 'http://localhost:8088/api/posts';
+        ? process.env.REACT_APP_API_URL+`/api/posts/${editId}`
+        : process.env.REACT_APP_API_URL+'/api/posts';
       
       const postData = {
         title: title,
@@ -255,7 +255,7 @@ const App = () => {
       }
 
       // URL에 writer 정보를 쿼리 파라미터로 추가
-      const response = await fetch(`http://localhost:8088/api/posts/${id}?writer=${encodeURIComponent(writer)}`, {
+      const response = await fetch(process.env.REACT_APP_API_URL+`/api/posts/${id}?writer=${encodeURIComponent(writer)}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -324,7 +324,7 @@ const App = () => {
   // 댓글 관련 함수들 수정
   const fetchComments = async () => {
     try {
-      const response = await fetch(`http://localhost:8088/api/comments/post/${selectedPost.id}`);
+      const response = await fetch(process.env.REACT_APP_API_URL+`/api/comments/post/${selectedPost.id}`);
       const data = await response.json();
       setComments(data);
     } catch (error) {
@@ -342,7 +342,7 @@ const App = () => {
     }
 
     try {
-      const response = await fetch(`http://localhost:8088/api/comments/post/${selectedPost.id}`, {
+      const response = await fetch(process.env.REACT_APP_API_URL+`/api/comments/post/${selectedPost.id}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -378,7 +378,7 @@ const App = () => {
       return;
     }
     try {
-      const response = await fetch(`http://localhost:8088/api/comments/${editingCommentId}`, {
+      const response = await fetch(process.env.REACT_APP_API_URL+`/api/comments/${editingCommentId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -418,7 +418,7 @@ const App = () => {
 
     try {
       const writer = localStorage.getItem('username');
-      const response = await fetch(`http://localhost:8088/api/comments/${commentId}?writer=${encodeURIComponent(writer)}`, {
+      const response = await fetch(process.env.REACT_APP_API_URL+`/api/comments/${commentId}?writer=${encodeURIComponent(writer)}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`

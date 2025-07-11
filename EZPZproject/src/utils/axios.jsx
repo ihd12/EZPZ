@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:8088',
+  baseURL: process.env.REACT_APP_API_URL,
   headers: {
     'Content-Type': 'application/json',
   }
@@ -32,7 +32,7 @@ axiosInstance.interceptors.response.use(
       try {
         const accessToken = localStorage.getItem('accessToken');
         const username = localStorage.getItem('username');
-        const response = await axios.post('http://localhost:8088/api/auth/reissue', {
+        const response = await axios.post(process.env.REACT_APP_API_URL+'/api/auth/reissue', {
           accessToken: accessToken,
           username: username
         });

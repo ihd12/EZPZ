@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:8088/api";
+const API_BASE_URL = process.env.REACT_APP_API_URL+"/api";
 
 // JWT 토큰을 가져와 Authorization 헤더 추가
 const getAuthHeader = () => {
