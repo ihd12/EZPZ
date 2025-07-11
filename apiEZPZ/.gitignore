@@ -1,5 +1,6 @@
 HELP.md
 .gradle
+application.properties
 vision-key.json
 build/
 !gradle/wrapper/gradle-wrapper.jar
